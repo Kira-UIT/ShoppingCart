@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="Stripe.net" Version="41.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingCart.Base\ShoppingCart.Base.csproj" />
+    <ProjectReference Include="..\ShoppingCart.Data\ShoppingCart.Data.csproj" />
+    <ProjectReference Include="..\ShoppingCart.Exception\ShoppingCart.Common.csproj" />
+    <ProjectReference Include="..\ShoppingCart.Repository\ShoppingCart.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
