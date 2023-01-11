@@ -98,6 +98,8 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductInventoryRepository, ProductInventoryRepository>();
 builder.Services.AddScoped<IShoppingSessionRepository, ShoppingSessionRepository>();
 builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
+builder.Services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 
 builder.Services.AddScoped<IGenerateTokenService, GenerateTokenService>();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -116,7 +118,6 @@ builder.Services.AddScoped<CustomerService>()
 
 // Add Stripe Infrastructure
 //builder.Services.AddStripeInfrastructure(builder.Configuration);
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

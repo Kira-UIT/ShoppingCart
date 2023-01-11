@@ -30,7 +30,6 @@ namespace ShoppingCart.Data
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<PaymentDetail> PaymentDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductInventory> ProductInventories { get; set; }
@@ -47,7 +46,6 @@ namespace ShoppingCart.Data
             builder.ApplyConfiguration(new DiscountConfiguration());
             builder.ApplyConfiguration(new OrderDetailConfiguration());
             builder.ApplyConfiguration(new OrderItemConfiguration());
-            builder.ApplyConfiguration(new PaymentDetailConfiguration());
             builder.ApplyConfiguration(new ProductCategoryConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
             builder.ApplyConfiguration(new ProductInventoryConfiguration());

@@ -13,7 +13,7 @@ namespace ShoppingCart.Repository
 {
     public class ProductCategoryRepository : Repository<ProductCategory>, IProductCategoryRepository
     {
-        private DataContext _dbContext;
+        private readonly DataContext _dbContext;
         public ProductCategoryRepository(DataContext dataContext) : base(dataContext)
         {
             _dbContext = dataContext;

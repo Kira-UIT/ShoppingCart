@@ -12,8 +12,8 @@ namespace ShoppingCart.Data.Models
         public decimal Total { get; set; }
         public Guid UserId { get; set; }
         public User User { get; set; }
-        public Guid PaymentId { get; set; }
-        public PaymentDetail PaymentDetail { get; set; }
         public ICollection<OrderItem> OrderItem { get; set; }
+        public string Provider { get; set; }
+        public string Status { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingCart.Data;
 
@@ -11,9 +12,10 @@ using ShoppingCart.Data;
 namespace ShoppingCart.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230111062232_update-orderitem-new")]
+    partial class updateorderitemnew
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -289,7 +291,8 @@ namespace ShoppingCart.Data.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId")
+                        .IsUnique();
 
                     b.ToTable("OrderItems");
                 });
@@ -678,7 +681,7 @@ namespace ShoppingCart.Data.Migrations
                     b.HasOne("ShoppingCart.Data.Models.Product", "Product")
                         .WithOne("OrderItem")
                         .HasForeignKey("ShoppingCart.Data.Models.OrderItem", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("OrderDetail");

@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingCart.Base.Services;
+using ShoppingCart.Data.Resourses.Responses;
 using ShoppingCart.Data.Resourses.Stripe;
+using System.Security.Claims;
 
 namespace shopping_cart.Controllers
 {
@@ -29,15 +32,17 @@ namespace shopping_cart.Controllers
         }
 
         [HttpPost("payment/add")]
+        [Authorize]
         public async Task<ActionResult<StripePayment>> AddStripePayment(
             [FromBody] AddStripePayment payment,
             CancellationToken ct)
         {
-            StripePayment createdPayment = await _stripeService.AddStripePaymentAsync(
+            _ = Guid.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out Guid userId);
+            var result = await _stripeService.AddStripePaymentAsync(
+                userId,
                 payment,
                 ct);
-
-            return StatusCode(StatusCodes.Status200OK, createdPayment);
+            return Ok(result);
         }
     }
 }

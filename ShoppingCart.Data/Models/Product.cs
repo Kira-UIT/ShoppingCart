@@ -19,5 +19,6 @@ namespace ShoppingCart.Data.Models
         public ProductCategory ProductCategory { get; set; }
         public Guid InvetoryId { get; set; }
         public ProductInventory ProductInventory { get; set; }
+        public OrderItem OrderItem { get; set; }
     }
 }

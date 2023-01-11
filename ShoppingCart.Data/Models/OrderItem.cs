@@ -13,5 +13,6 @@ namespace ShoppingCart.Data.Models
         public OrderDetail OrderDetail { get; set; }
         public Guid ProductId { get; set; }
         public Product Product { get; set; }
+        public int Amount { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace ShoppingCart.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
-            builder.HasOne(x => x.PaymentDetail).WithOne(x => x.OrderDetail).HasForeignKey<PaymentDetail>(x => x.OrderId).OnDelete(DeleteBehavior.Cascade);
+            
         }
     }
 }
